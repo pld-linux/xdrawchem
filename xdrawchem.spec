@@ -25,8 +25,8 @@ formulas, and estimate elemental analysis.
 
 %description -l pl
 XDrawChem jest programem do rysowania chemicznych struktur i reakcji.
-Mo¿e tak¿e przewidzieæ 13C NMR oraz IR spectra, przeliczaæ empiryczne
-formu³y, a tak¿e robiæ przybli¿on± analizê pierwiastków.
+Mo¿e tak¿e przewidzieæ widma 13C NMR oraz IR, przeliczaæ empiryczne
+formu³y, a tak¿e robiæ przybli¿on± analizê sk³adu pierwiastkowego.
 
 %prep
 %setup -q
