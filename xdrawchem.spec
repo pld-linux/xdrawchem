@@ -7,6 +7,7 @@ License:	Modified BSD
 Group:		X11/Applications/Science
 Source0:	http://www.prism.gatech.edu/~gte067k/xdrawchem/%{name}-%{version}.tgz
 Patch0:		%{name}-includes.patch
+Patch1:		%{name}-DESTDIR.patch
 BuildRequires:	qt-devel >= 2.3
 URL:		http://www.prism.gatech.edu/~gte067k/xdrawchem/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -26,13 +27,16 @@ formu³y, a tak¿e robiæ przybli¿on± analizê pierwiastków.
 %prep
 %setup -q
 %patch0 -p1
+%patch1
 
 %build
 QTDIR=%{_includedir}/qt ; export QTDIR
-%{__make} -f Makefile.RPM all
+%{__make} all
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
+install -d $RPM_BUILD_ROOT
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
