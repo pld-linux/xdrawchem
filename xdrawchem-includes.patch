@@ -1,0 +1,24 @@
+--- ./Makefile.org	Mon Apr 29 21:12:21 2002
++++ ./Makefile	Sun May 12 08:22:46 2002
+@@ -6,16 +6,16 @@
+ # xdc_server: database server.  OK to set to "herger.ibb.gatech.edu";
+ #             as of version 0.98, there are no other servers  :)
+ 
+-INSTDIR = /usr/local/bin
+-INSTRING = /usr/local/lib/xdrawchem
++INSTDIR = /usr/X11R6/bin
++INSTRING = /usr/X11R6/lib/xdrawchem
+ xdc_server = herger.ibb.gatech.edu
+ 
+ ## Platform-specific flags -- uncomment appropriate section
+ ## For Linux, SGI IRIX 6.5 using gcc/g++
+ CXX	=	g++
+-INCPATH =	-I/usr/include -I$(QTDIR)/include
++INCPATH =	-I$(QTDIR) -I/usr/include -I$(QTDIR)/include
+ LIBS	=	-lqt -lXext -lX11 -lm
+-MOC	=	$(QTDIR)/bin/moc
++MOC	=	/usr/X11R6/bin/moc
+ 
+ ## for Sun
+ #CXX	=	CC
+
