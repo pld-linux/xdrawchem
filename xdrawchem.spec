@@ -1,8 +1,8 @@
 Summary:	XDrawChem - A chemical drawing program
 Summary(pl):	XDrawChem - Program do rysunków chemicznych
 Name:		xdrawchem
-Version:	1.3.2
-Release:	0.5
+Version:	1.4
+Release:	0.6
 License:	Modified BSD
 Group:		X11/Applications/Science
 Source0:	http://www.prism.gatech.edu/~gte067k/xdrawchem/%{name}-%{version}.tgz
@@ -36,14 +36,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
-gzip -9nf HISTORY.txt README.txt TODO.txt
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc HISTORY.txt README.txt TODO.txt
 %attr(755,root,root) %{_bindir}/xdrawchem
 %dir %{_libdir}/xdrawchem
 %{_libdir}/xdrawchem/*
