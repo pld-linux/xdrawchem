@@ -1,12 +1,12 @@
 Summary:	XDrawChem - a chemical drawing program
 Summary(pl):	XDrawChem - program do rysunków chemicznych
 Name:		xdrawchem
-Version:	1.8
-Release:	2
+Version:	1.9
+Release:	1
 License:	BSD-like
 Group:		X11/Applications/Science
-Source0:	http://dl.sourceforge.net/xdrawchem/%{name}-%{version}.tgz
-# Source0-md5:	03b43d3c6fc403b4463658ab1bfdccf9
+Source0:	http://dl.sourceforge.net/xdrawchem/%{name}-%{version}.tar.gz
+# Source0-md5:	4375dc7d9a99783c6fe72aeb754e2c44
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-ac.patch
@@ -25,8 +25,8 @@ formulas, and estimate elemental analysis.
 
 %description -l pl
 XDrawChem jest programem do rysowania chemicznych struktur i reakcji.
-Mo¿e tak¿e przewidzieæ widma 13C NMR oraz IR, przeliczaæ empiryczne
-formu³y, a tak¿e robiæ przybli¿on± analizê sk³adu pierwiastkowego.
+Mo¿e tak¿e przewidzieæ widma NMR (13C i 1H) oraz IR, obliczaæ wzory 
+empiryczne oraz sk³ad pierwiastkowy.
 
 %prep
 %setup -q
