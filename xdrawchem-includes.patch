@@ -21,6 +21,15 @@
  
  ## for Sun
  #CXX	=	CC
+@@ -32,7 +32,7 @@
+ ## end of platform-specific flags
+ 
+ ## other compiler flags
+-CXXFLAGS = -O2 -DUNIX -DRINGHOME=\"${INSTRING}\" -DXDC_SERVER=\"${xdc_server}\"
++CXXFLAGS = -DUNIX -DRINGHOME=\"${INSTRING}\" -DXDC_SERVER=\"${xdc_server}\"
+ CC	=	gcc
+ #CFLAGS	=	-DRINGHOME=$(RINGDIR) -DXDC_SERVER=$(SERVER)
+ LFLAGS	=	-L$(QTDIR)/lib -L/usr/lib -L/usr/X11R6/lib
 --- ./Makefile.org	Sun May 12 08:11:35 2002
 +++ ./Makefile	Sun May 12 08:12:02 2002
 @@ -13,9 +13,9 @@
@@ -35,3 +44,4 @@
  
  ## for Sun
  #CXX	=	CC
+
