@@ -12,8 +12,8 @@
  YACC     = yacc
 -CFLAGS   = -pipe -Wall -W -g  -DUNIX -DRINGHOME=\"/usr/local/lib/xdrawchem\" -DXDC_SERVER=\"herger.ibb.gatech.edu\"
 -CXXFLAGS = -pipe -Wall -W -g  -DUNIX -DRINGHOME=\"/usr/local/lib/xdrawchem\" -DXDC_SERVER=\"herger.ibb.gatech.edu\"
-+CFLAGS   = -pipe -Wall -W -g  -DUNIX -DRINGHOME=\"$(RINGDIR)\" -DXDC_SERVER=\"$(XDCSERVER)\"
-+CXXFLAGS = -pipe -Wall -W -g  -DUNIX -DRINGHOME=\"$(RINGDIR)\" -DXDC_SERVER=\"$(XDCSERVER)\"
++CFLAGS   = $(OPT) -pipe -Wall -W -g  -DUNIX -DRINGHOME=\"$(RINGDIR)\" -DXDC_SERVER=\"$(XDCSERVER)\"
++CXXFLAGS = $(OPT) -pipe -Wall -W -g  -DUNIX -DRINGHOME=\"$(RINGDIR)\" -DXDC_SERVER=\"$(XDCSERVER)\"
  LEXFLAGS = 
  YACCFLAGS= -d
  INCPATH  = -I$(QTDIR)/include -I$(QTDIR)/mkspecs/default
