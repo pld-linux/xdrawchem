@@ -1,14 +1,18 @@
 Summary:	XDrawChem - A chemical drawing program
 Summary(pl):	XDrawChem - Program do rysunków chemicznych
 Name:		xdrawchem
-Version:	1.5
-Release:	2
+Version:	1.5.2
+Release:	1
 License:	BSD-like
 Group:		X11/Applications/Science
 Source0:	http://www.prism.gatech.edu/~gte067k/xdrawchem/%{name}-%{version}.tgz
 Source1:	%{name}.desktop
-Patch0:		%{name}-qmake.patch
+Patch0:		%{name}-no_inclueded_openbabel.patch
 URL:		http://www.prism.gatech.edu/~gte067k/xdrawchem/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
+BuildRequires:	openbabel-devel
 BuildRequires:	qt-devel >= 3.0.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -30,21 +34,18 @@ formu³y, a tak¿e robiæ przybli¿on± analizê pierwiastków.
 
 %build
 QTDIR=%{_prefix} ; export QTDIR
-%{__make} \
-	QMAKECONF="%{_datadir}/qt/mkspecs/linux-g++/qmake.conf" \
-	MOC="moc" \
-	INCPATH="-I/usr/X11R6/include/qt" \
-	RINGDIR="%{_datadir}/xdrawchem" all
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%configure
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Scientific/Chemistry
 
-%{__make} \
-	DESTDIR=$RPM_BUILD_ROOT \
-	QMAKECONF="%{_datadir}/qt/mkspecs/linux-g++/qmake.conf" \
-	RINGDIR="%{_datadir}/xdrawchem" \
-	BINDIR="%{_bindir}" install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Scientific/Chemistry
 
