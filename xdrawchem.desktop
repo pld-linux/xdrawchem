@@ -7,4 +7,5 @@ Icon=xdrawchem.png
 Exec=xdrawchem
 Terminal=0
 Type=Application
+Encoding=UTF-8
 # vi: encoding=utf-8
