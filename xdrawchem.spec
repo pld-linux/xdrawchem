@@ -1,24 +1,22 @@
 Summary:	XDrawChem - a chemical drawing program
 Summary(pl):	XDrawChem - program do rysunków chemicznych
 Name:		xdrawchem
-Version:	1.7.1
+Version:	1.8
 Release:	1
 License:	BSD-like
 Group:		X11/Applications/Science
-# Source0-md5:	1afcd8011a27cae62315b4263515e2fc
-Source0:	http://www.prism.gatech.edu/~gte067k/xdrawchem/%{name}-%{version}.tgz
+Source0:	http://dl.sourceforge.net/xdrawchem/%{name}-%{version}.tgz
+# Source0-md5:	03b43d3c6fc403b4463658ab1bfdccf9
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-Patch0:		%{name}-no_inclueded_openbabel.patch
-URL:		http://www.prism.gatech.edu/~gte067k/xdrawchem/
-BuildRequires:	autoconf
+Patch0:		%{name}-ac.patch
+URL:		http://xdrawchem.sourceforge.net/
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	openbabel-devel
+BuildRequires:	openbabel-devel >= 1.100.2
 BuildRequires:	qt-devel >= 3.0.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr/X11R6
 
 %description
 XDrawChem is a program for drawing chemical structures and reactions.
@@ -34,22 +32,27 @@ formu³y, a tak¿e robiæ przybli¿on± analizê pierwiastków.
 %setup -q
 %patch0 -p1
 
+rm -rf autom4te.cache
+
 %build
-QTDIR=%{_prefix} ; export QTDIR
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
+%{__automake}
+%{__perl} automoc
 %configure
-%{__make}
+%{__make} \
+	AM_CXXFLAGS=
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_applnkdir}/Scientific/Chemistry,%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Scientific/Chemistry
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
@@ -60,6 +63,15 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYRIGHT.txt HISTORY.txt README.txt TODO.txt
 %attr(755,root,root) %{_bindir}/xdrawchem
 %dir %{_datadir}/xdrawchem
-%{_datadir}/xdrawchem/*
-%{_applnkdir}/Scientific/Chemistry/*.desktop
-%{_pixmapsdir}/*
+%{_datadir}/xdrawchem/[!x]*
+%{_datadir}/xdrawchem/xdrawchemrc
+%lang(da) %{_datadir}/xdrawchem/xdrawchem_da.qm
+%lang(de) %{_datadir}/xdrawchem/xdrawchem_de.qm
+%lang(en) %{_datadir}/xdrawchem/xdrawchem_en.qm
+%lang(es) %{_datadir}/xdrawchem/xdrawchem_es.qm
+%lang(fr) %{_datadir}/xdrawchem/xdrawchem_fr.qm
+%lang(it) %{_datadir}/xdrawchem/xdrawchem_it.qm
+%lang(nl) %{_datadir}/xdrawchem/xdrawchem_nl.qm
+%lang(pl) %{_datadir}/xdrawchem/xdrawchem_pl.qm
+%{_desktopdir}/*.desktop
+%{_pixmapsdir}/*.png
