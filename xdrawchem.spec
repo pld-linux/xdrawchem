@@ -15,25 +15,26 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 XDrawChem is a program for drawing chemical structures and reactions.
-It can also predict 13C NMR and IR spectra, calculate empirical formulas,
-and estimate elemental analysis.
+It can also predict 13C NMR and IR spectra, calculate empirical
+formulas, and estimate elemental analysis.
 
 %description -l pl
 XDrawChem jest programem do rysowania chemicznych struktur i reakcji.
 Mo¿e tak¿e przewidzieæ 13C NMR oraz IR spectra, przeliczaæ empiryczne
-formu³y, a tak¿e estimate elemental analysis.
+formu³y, a tak¿e robiæ przybli¿on± analizê pierwiastków.
 
 %prep
-%setup -q 
+%setup -q
 %patch0 -p1
 
 %build
-export QTDIR=/usr/X11R6/include/qt
-make -f Makefile.RPM all
+QTDIR=%{_includedir}/qt ; export QTDIR
+%{__make} -f Makefile.RPM all
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make DESTDIR=$RPM_BUILD_ROOT install
+
+%{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 gzip -9nf HISTORY.txt README.txt TODO.txt
 
@@ -44,5 +45,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/xdrawchem
-%dir %{_libdir}/xdrawchem/
+%dir %{_libdir}/xdrawchem
 %{_libdir}/xdrawchem/*
