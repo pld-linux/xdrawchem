@@ -6,6 +6,7 @@ Release:	3
 License:	BSD-like
 Group:		X11/Applications/Science
 Source0:	http://www.prism.gatech.edu/~gte067k/xdrawchem/%{name}-%{version}.tgz
+# Source0-md5:	1fb628b5b8edf033a4da41c955ef3780
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-no_inclueded_openbabel.patch
