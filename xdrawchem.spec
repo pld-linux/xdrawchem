@@ -11,6 +11,7 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-ac.patch
 Patch1:		%{name}-qt_path.patch
+Patch2:		%{name}-lib64.patch
 URL:		http://xdrawchem.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -34,6 +35,9 @@ empiryczne oraz sk³ad pierwiastkowy.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%if "%{_lib}" == "lib64"
+%patch2 -p1
+%endif
 
 rm -rf autom4te.cache
 
