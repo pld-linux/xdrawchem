@@ -1,5 +1,5 @@
---- ./Makefile.RPM.org	Mon Apr 29 21:12:21 2002
-+++ ./Makefile.RPM	Sun May 12 08:22:46 2002
+--- ./Makefile.org	Mon Apr 29 21:12:21 2002
++++ ./Makefile	Sun May 12 08:22:46 2002
 @@ -6,16 +6,16 @@
  # xdc_server: database server.  OK to set to "herger.ibb.gatech.edu";
  #             as of version 0.98, there are no other servers  :)
@@ -15,29 +15,6 @@
  CXX	=	g++
 -INCPATH =	-I/usr/include -I$(QTDIR)/include
 +INCPATH =	-I$(QTDIR) -I/usr/include -I$(QTDIR)/include
- LIBS	=	-lqt -lXext -lX11 -lm
--MOC	=	$(QTDIR)/bin/moc
-+MOC	=	/usr/X11R6/bin/moc
- 
- ## for Sun
- #CXX	=	CC
-@@ -32,7 +32,7 @@
- ## end of platform-specific flags
- 
- ## other compiler flags
--CXXFLAGS = -O2 -DUNIX -DRINGHOME=\"${INSTRING}\" -DXDC_SERVER=\"${xdc_server}\"
-+CXXFLAGS = -DUNIX -DRINGHOME=\"${INSTRING}\" -DXDC_SERVER=\"${xdc_server}\"
- CC	=	gcc
- #CFLAGS	=	-DRINGHOME=$(RINGDIR) -DXDC_SERVER=$(SERVER)
- LFLAGS	=	-L$(QTDIR)/lib -L/usr/lib -L/usr/X11R6/lib
---- ./Makefile.org	Sun May 12 08:11:35 2002
-+++ ./Makefile	Sun May 12 08:12:02 2002
-@@ -13,9 +13,9 @@
- ## Platform-specific flags -- uncomment appropriate section
- ## For Linux, SGI IRIX 6.5 using gcc/g++
- CXX	=	g++
--INCPATH =	-I/usr/include -I$(QTDIR)/include
-+INCPATH =	-I/usr/include -I$(QTDIR)/include -I$(QTDIR)
  LIBS	=	-lqt -lXext -lX11 -lm
 -MOC	=	$(QTDIR)/bin/moc
 +MOC	=	/usr/X11R6/bin/moc
