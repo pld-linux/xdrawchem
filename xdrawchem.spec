@@ -1,7 +1,7 @@
 Summary:	XDrawChem - A chemical drawing program
 Summary(pl):	XDrawChem - Program do rysunków chemicznych
 Name:		xdrawchem
-Version:	1.1.1
+Version:	1.3.2
 Release:	0.5
 License:	Modified BSD
 Group:		X11/Applications/Science
