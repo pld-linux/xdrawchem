@@ -1,0 +1,30 @@
+diff -burN xdrawchem-1.9.2.orig/configure.ac xdrawchem-1.9.2/configure.ac
+--- xdrawchem-1.9.2.orig/configure.ac	2005-02-20 11:08:28.392952832 +0100
++++ xdrawchem-1.9.2/configure.ac	2005-02-20 11:09:09.280736944 +0100
+@@ -10,7 +10,7 @@
+ if test x"$QTDIR" = x ; then
+     QT_SEARCH="/usr/lib/qt31 /usr/local/qt31 /usr/lib/qt3 /usr/local/qt3 /usr/lib/qt2 /usr/local/qt2 /usr/lib/qt /usr/local/qt"
+     for i in $QT_SEARCH; do
+-        if test -f $i/include/qglobal.h -a x$QTDIR = x; then QTDIR=$i; fi
++        if test -f $i/include/qt/qglobal.h -a x$QTDIR = x; then QTDIR=$i; fi
+     done
+ fi
+ if test x"$QTDIR" = x ; then
+@@ -26,7 +26,7 @@
+ 
+ # Figure out which version of Qt we are using
+ AC_MSG_CHECKING([Qt version])
+-QT_VER=`grep 'define.*QT_VERSION_STR\W' $QTDIR/include/qglobal.h | perl -p -e 's/\D//g'`
++QT_VER=`grep 'define.*QT_VERSION_STR\W' $QTDIR/include/qt/qglobal.h | perl -p -e 's/\D//g'`
+ case "${QT_VER}" in
+     2*)
+         QT_MAJOR="2"
+@@ -59,7 +59,7 @@
+ 
+ 
+ # Calculate Qt include path
+-QT_CXXFLAGS="-I$QTDIR/include"
++QT_CXXFLAGS="-I$QTDIR/include/qt"
+ 
+ QT_IS_EMBEDDED="no"
+ # On unix, figure out if we're doing a static or dynamic link
