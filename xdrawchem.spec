@@ -1,15 +1,16 @@
 Summary:	XDrawChem - a chemical drawing program
 Summary(pl):	XDrawChem - program do rysunków chemicznych
 Name:		xdrawchem
-Version:	1.9
+Version:	1.9.2
 Release:	1
 License:	BSD-like
 Group:		X11/Applications/Science
 Source0:	http://dl.sourceforge.net/xdrawchem/%{name}-%{version}.tar.gz
-# Source0-md5:	4375dc7d9a99783c6fe72aeb754e2c44
+# Source0-md5:	c0c230e3e2f87f0d7ac4c54b21a305ef
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-ac.patch
+Patch1:		%{name}-qt_path.patch
 URL:		http://xdrawchem.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -31,6 +32,7 @@ empiryczne oraz sk³ad pierwiastkowy.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 rm -rf autom4te.cache
 
@@ -41,9 +43,9 @@ rm -rf autom4te.cache
 %{__autoheader}
 %{__automake}
 %{__perl} automoc
-%configure
-%{__make} \
-	AM_CXXFLAGS=
+%configure \
+	--with-qtdir=%{_prefix}
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
