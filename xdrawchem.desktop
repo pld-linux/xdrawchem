@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=xdrawchem
+Name[pl]=xdrawchem
+Comment=XDrawChem
+Comment[pl]=XDrawChem
+Icon=xdrawchem.png
+Exec=xdrawchem
+Terminal=0
+Type=Application
+
+# vi: encoding=utf-8
