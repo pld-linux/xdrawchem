@@ -1,6 +1,15 @@
 --- ./Makefile.RPM.org	Mon Apr 29 21:12:21 2002
-+++ ./Makefile.RPM	Sun May 12 08:17:22 2002
-@@ -13,9 +13,9 @@
++++ ./Makefile.RPM	Sun May 12 08:22:46 2002
+@@ -6,16 +6,16 @@
+ # xdc_server: database server.  OK to set to "herger.ibb.gatech.edu";
+ #             as of version 0.98, there are no other servers  :)
+ 
+-INSTDIR = /usr/local/bin
+-INSTRING = /usr/local/lib/xdrawchem
++INSTDIR = /usr/X11R6/bin
++INSTRING = /usr/X11R6/lib/xdrawchem
+ xdc_server = herger.ibb.gatech.edu
+ 
  ## Platform-specific flags -- uncomment appropriate section
  ## For Linux, SGI IRIX 6.5 using gcc/g++
  CXX	=	g++
