@@ -1,11 +1,10 @@
 [Desktop Entry]
-Name=xdrawchem
-Name[pl]=xdrawchem
-Comment=XDrawChem
-Comment[pl]=XDrawChem
+Name=Xdrawchem
+Name[pl]=Xdrawchem
+Comment=Two-dimensional molecule drawing program
+Comment[pl]=Program do rysowania dwuwymiarowych cząsteczek
 Icon=xdrawchem.png
 Exec=xdrawchem
 Terminal=0
 Type=Application
-
 # vi: encoding=utf-8
