@@ -1,0 +1,28 @@
+--- ./Makefile.RPM.org	Mon Apr 29 21:12:21 2002
++++ ./Makefile.RPM	Sun May 12 08:17:22 2002
+@@ -13,9 +13,9 @@
+ ## Platform-specific flags -- uncomment appropriate section
+ ## For Linux, SGI IRIX 6.5 using gcc/g++
+ CXX	=	g++
+-INCPATH =	-I/usr/include -I$(QTDIR)/include
++INCPATH =	-I$(QTDIR) -I/usr/include -I$(QTDIR)/include
+ LIBS	=	-lqt -lXext -lX11 -lm
+-MOC	=	$(QTDIR)/bin/moc
++MOC	=	/usr/X11R6/bin/moc
+ 
+ ## for Sun
+ #CXX	=	CC
+--- ./Makefile.org	Sun May 12 08:11:35 2002
++++ ./Makefile	Sun May 12 08:12:02 2002
+@@ -13,9 +13,9 @@
+ ## Platform-specific flags -- uncomment appropriate section
+ ## For Linux, SGI IRIX 6.5 using gcc/g++
+ CXX	=	g++
+-INCPATH =	-I/usr/include -I$(QTDIR)/include
++INCPATH =	-I/usr/include -I$(QTDIR)/include -I$(QTDIR)
+ LIBS	=	-lqt -lXext -lX11 -lm
+-MOC	=	$(QTDIR)/bin/moc
++MOC	=	/usr/X11R6/bin/moc
+ 
+ ## for Sun
+ #CXX	=	CC
