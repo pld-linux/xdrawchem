@@ -1,17 +1,14 @@
 Summary:	XDrawChem - a chemical drawing program
 Summary(pl):	XDrawChem - program do rysunków chemicznych
 Name:		xdrawchem
-Version:	1.9.2
+Version:	1.9.6
 Release:	1
 License:	BSD-like
 Group:		X11/Applications/Science
 Source0:	http://dl.sourceforge.net/xdrawchem/%{name}-%{version}.tar.gz
-# Source0-md5:	c0c230e3e2f87f0d7ac4c54b21a305ef
+# Source0-md5:	006f055290a7067540ddea6ee938d9e5
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-Patch0:		%{name}-ac.patch
-Patch1:		%{name}-qt_path.patch
-Patch2:		%{name}-lib64.patch
 URL:		http://xdrawchem.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -28,16 +25,11 @@ formulas, and estimate elemental analysis.
 
 %description -l pl
 XDrawChem jest programem do rysowania chemicznych struktur i reakcji.
-Mo¿e tak¿e przewidzieæ widma NMR (13C i 1H) oraz IR, obliczaæ wzory 
+Mo¿e tak¿e przewidzieæ widma NMR (13C i 1H) oraz IR, obliczaæ wzory
 empiryczne oraz sk³ad pierwiastkowy.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%if "%{_lib}" == "lib64"
-%patch2 -p1
-%endif
 
 rm -rf autom4te.cache
 
@@ -49,7 +41,8 @@ rm -rf autom4te.cache
 %{__automake}
 %{__perl} automoc
 %configure \
-	--with-qtdir=%{_prefix}
+	--with-qtdir=%{_prefix} \
+	--with-qtlibdir=%{_libdir}
 %{__make}
 
 %install
@@ -72,6 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/xdrawchem
 %{_datadir}/xdrawchem/[!x]*
 %{_datadir}/xdrawchem/xdrawchemrc
+%{_datadir}/xdrawchem/xdrawchem*.png
 %lang(da) %{_datadir}/xdrawchem/xdrawchem_da.qm
 %lang(de) %{_datadir}/xdrawchem/xdrawchem_de.qm
 %lang(en) %{_datadir}/xdrawchem/xdrawchem_en.qm
@@ -80,5 +74,6 @@ rm -rf $RPM_BUILD_ROOT
 %lang(it) %{_datadir}/xdrawchem/xdrawchem_it.qm
 %lang(nl) %{_datadir}/xdrawchem/xdrawchem_nl.qm
 %lang(pl) %{_datadir}/xdrawchem/xdrawchem_pl.qm
+%lang(ru) %{_datadir}/xdrawchem/xdrawchem_ru.qm
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*.png
