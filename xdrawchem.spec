@@ -15,7 +15,8 @@ BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	openbabel-devel >= 1.100.2
 BuildRequires:	pkgconfig
-BuildRequires:	qt-st-devel >= 3.0.5
+BuildRequires:	qt-devel >= 3.0.5
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,7 +32,8 @@ empiryczne oraz sk³ad pierwiastkowy.
 %prep
 %setup -q
 
-rm -rf autom4te.cache
+# don't try to use qt-st
+sed -i -e 's/libqt\./nolibqt\./' configure.ac
 
 %build
 %{__libtoolize}
