@@ -1,5 +1,5 @@
 Summary:	XDrawChem - a chemical drawing program
-Summary(pl):	XDrawChem - program do rysunków chemicznych
+Summary(pl.UTF-8):   XDrawChem - program do rysunkÃ³w chemicznych
 Name:		xdrawchem
 Version:	1.9.9
 Release:	1
@@ -24,10 +24,10 @@ XDrawChem is a program for drawing chemical structures and reactions.
 It can also predict 13C NMR and IR spectra, calculate empirical
 formulas, and estimate elemental analysis.
 
-%description -l pl
+%description -l pl.UTF-8
 XDrawChem jest programem do rysowania chemicznych struktur i reakcji.
-Mo¿e tak¿e przewidzieæ widma NMR (13C i 1H) oraz IR, obliczaæ wzory
-empiryczne oraz sk³ad pierwiastkowy.
+MoÅ¼e takÅ¼e przewidzieÄ‡ widma NMR (13C i 1H) oraz IR, obliczaÄ‡ wzory
+empiryczne oraz skÅ‚ad pierwiastkowy.
 
 %prep
 %setup -q
