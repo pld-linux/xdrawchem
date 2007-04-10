@@ -15,7 +15,7 @@ BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	openbabel-devel >= 2.0.0
 BuildRequires:	pkgconfig
-BuildRequires:	qt-devel >= 3.0.5
+BuildRequires:	qt-devel >= 3:3.0.5
 BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
